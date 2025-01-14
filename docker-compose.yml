@@ -1,0 +1,31 @@
+services:
+  database:
+    image: 'postgres:latest'
+    ports:
+      - 15432:5432
+    environment:
+      POSTGRES_USER: username # The PostgreSQL user (useful to connect to the database)
+      POSTGRES_PASSWORD: password # The PostgreSQL password (useful to connect to the database)
+    networks:
+      - postgres-network
+    volumes:
+      - ${PWD}/db-data/:/var/lib/postgresql/data/
+      - ${PWD}/init.sql:/docker-entrypoint-initdb.d/init.sql
+
+  pgadmin:
+    image: dpage/pgadmin4
+    ports:
+      - 15433:80
+    environment:
+      PGADMIN_DEFAULT_EMAIL: jeffrey@defjef.nl
+      PGADMIN_DEFAULT_PASSWORD: Jeffm@n1234
+    depends_on:
+      - database
+    networks:
+      - postgres-network
+    volumes:
+      - ${PWD}/pgadmin-data/:/var/lib/pgadmin/
+
+networks:
+  postgres-network:
+    driver: bridge

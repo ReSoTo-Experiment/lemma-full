@@ -1,0 +1,60 @@
+package edu.resoto.saz.Survey.domain.Tenant;
+
+import edu.resoto.saz.Survey.domain.Tenant.gen.ProjectGen;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+
+public class Project implements ProjectGen {
+
+    public Project() {
+    }
+
+    @Id()
+    @GeneratedValue
+    private long id;
+
+    private String guid;
+
+    @Override
+    public String getGuid() {
+        return guid;
+    }
+
+    private String name;
+
+    @Override
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    private String description;
+
+    @Override
+    public String getDescription() {
+        return description;
+    }
+
+    @Override
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Project(String guid, String name, String description) {
+        this.guid = guid;
+        this.name = name;
+        this.description = description;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+}

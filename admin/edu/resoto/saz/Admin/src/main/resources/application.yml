@@ -1,0 +1,14 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: admin
+  datasource:
+    url: jdbc:postgresql://localhost:5432/shopme
+    username: postgres
+    password: password
+  data:
+    jpa:
+      repositories:
+        enabled: true

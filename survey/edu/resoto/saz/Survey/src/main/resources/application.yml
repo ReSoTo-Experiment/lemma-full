@@ -1,0 +1,22 @@
+server:
+    port: 8080
+
+#jakarta:
+#  persistence:
+#    jdbc:
+#      url: jdbc:postgresql://localhost:15432/shopme
+
+spring:
+  application:
+    name: admin
+  datasource:
+    url: jdbc:postgresql://localhost:15432/postgres
+    username: username
+    password: password
+  jpa:
+    hibernate:
+      ddl-auto: create
+  data:
+    jpa:
+      repositories:
+        enabled: true
