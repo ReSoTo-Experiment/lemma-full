@@ -4,13 +4,16 @@ import edu.resoto.saz.Admin.domain.Authentication.Role;
 import edu.resoto.saz.Admin.domain.Authentication.gen.PersonGen;
 import java.util.List;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
 
 @Entity()
 public class Person implements PersonGen {
 
     public Person() {
     }
-
+    @Id
+    @GeneratedValue
     private long id;
 
     @Override

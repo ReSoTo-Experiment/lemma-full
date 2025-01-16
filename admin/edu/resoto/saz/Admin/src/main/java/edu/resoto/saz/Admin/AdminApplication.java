@@ -8,9 +8,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @LemmaMicroservice(type = LemmaMicroserviceType.FUNCTIONAL)
 @SpringBootApplication(scanBasePackages = "edu.resoto.saz.Admin")
-public class Admin implements AdminGen {
+public class AdminApplication implements AdminGen {
 
     public static void main(String[] args) {
-        SpringApplication.run(Admin.class, args);
+        SpringApplication.run(AdminApplication.class, args);
     }
 }

@@ -9,7 +9,4 @@ public interface RoleGen {
 
     void setName(String name);
 
-    List<Person> getUsers();
-
-    void setUsers(List<Person> users);
 }

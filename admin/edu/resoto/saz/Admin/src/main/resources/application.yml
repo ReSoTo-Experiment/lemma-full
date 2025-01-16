@@ -1,14 +1,13 @@
 server:
-  port: 8080
+  port: 8082
 
 spring:
   application:
     name: admin
   datasource:
-    url: jdbc:postgresql://localhost:5432/shopme
-    username: postgres
+    url: jdbc:postgresql://host.docker.internal:15432/postgres
+    username: username
     password: password
-  data:
-    jpa:
-      repositories:
-        enabled: true
+  jpa:
+    hibernate:
+      ddl-auto: update
