@@ -8,9 +8,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @LemmaMicroservice(type = LemmaMicroserviceType.FUNCTIONAL)
 @SpringBootApplication(scanBasePackages = "edu.resoto.saz.researcher")
-public class Researcher implements ResearcherGen {
+public class ResearcherApplication implements ResearcherGen {
 
     public static void main(String[] args) {
-        SpringApplication.run(Researcher.class, args);
+        SpringApplication.run(ResearcherApplication.class, args);
     }
 }

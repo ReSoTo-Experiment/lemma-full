@@ -2,22 +2,29 @@ package edu.resoto.saz.researcher.interfaces;
 
 import edu.resoto.saz.researcher.domain.Tenant.Survey;
 import edu.resoto.saz.researcher.interfaces.gen.ResearcherServiceGen;
+import edu.resoto.saz.researcher.managers.ResearchManager;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @Component()
 @RestController()
+@RequestMapping("/researcher")
 public class ResearcherService implements ResearcherServiceGen {
 
+    private final ResearchManager researchManager;
+
+    @Autowired
+    public ResearcherService(ResearchManager researchManager) {
+        this.researchManager = researchManager;
+    }
     @GetMapping(value = "/survey/{surveyGuid}")
     protected Survey getResults(@PathVariable() String surveyGuid) {
         checkRequiredParametersOfGetResults(surveyGuid);
+
+        if (researchManager != null) {
+            return researchManager.getSurvey(surveyGuid);
+        }
         throw new UnsupportedOperationException("Not implemented yet");
     }
 

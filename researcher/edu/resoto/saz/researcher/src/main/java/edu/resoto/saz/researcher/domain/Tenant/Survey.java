@@ -1,14 +1,17 @@
 package edu.resoto.saz.researcher.domain.Tenant;
 
 import edu.resoto.saz.researcher.domain.Tenant.gen.SurveyGen;
-import javax.persistence.Entity;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
 
 @Entity()
 public class Survey implements SurveyGen {
 
     public Survey() {
     }
-
+    @Id
+    @GeneratedValue
     private long id;
 
     @Override

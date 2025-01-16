@@ -1,11 +1,17 @@
 package edu.resoto.saz.researcher.domain.Tenant;
 
 import edu.resoto.saz.researcher.domain.Tenant.gen.ProjectGen;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
 
 public class Project implements ProjectGen {
 
     public Project() {
     }
+
+    @Id
+    @GeneratedValue
+    private long id;
 
     private String guid;
 

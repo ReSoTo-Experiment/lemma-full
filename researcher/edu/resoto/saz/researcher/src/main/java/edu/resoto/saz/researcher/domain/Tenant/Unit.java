@@ -4,13 +4,19 @@ import edu.resoto.saz.researcher.domain.Authentication.Person;
 import edu.resoto.saz.researcher.domain.Tenant.Organization;
 import edu.resoto.saz.researcher.domain.Tenant.gen.UnitGen;
 
-import javax.persistence.OneToMany;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import java.util.List;
 
 public class Unit implements UnitGen {
 
     public Unit() {
     }
+
+    @Id
+    @GeneratedValue
+    private long id;
 
     private String guid;
 

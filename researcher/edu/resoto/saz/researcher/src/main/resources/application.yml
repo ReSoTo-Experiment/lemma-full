@@ -1,13 +1,24 @@
 server:
-  port: 8080
+  port: 8081
+
+surveyService:
+  url: http://host.docker.internal:8080/survey
 
 spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://host.docker.internal:7080/realms/master
   application:
-    name: researcher
+    name: researcher-full
   datasource:
-    url: jdbc:postgresql://localhost:5432/shopme
-    username: postgres
+    url: jdbc:postgresql://host.docker.internal:15432/postgres
+    username: username
     password: password
+  jpa:
+    hibernate:
+      ddl-auto: update
   data:
     jpa:
       repositories:

@@ -8,8 +8,4 @@ public interface RoleGen {
     String getName();
 
     void setName(String name);
-
-    List<Person> getUsers();
-
-    void setUsers(List<Person> users);
 }

@@ -3,7 +3,10 @@ package edu.resoto.saz.researcher.domain.Authentication;
 import edu.resoto.saz.researcher.domain.Authentication.Role;
 import edu.resoto.saz.researcher.domain.Authentication.gen.PersonGen;
 import java.util.List;
-import javax.persistence.Entity;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 
 @Entity()
 public class Person implements PersonGen {
@@ -11,6 +14,8 @@ public class Person implements PersonGen {
     public Person() {
     }
 
+    @Id
+    @GeneratedValue
     private long id;
 
     @Override
@@ -47,6 +52,7 @@ public class Person implements PersonGen {
         this.guid = guid;
     }
 
+    @OneToMany
     private List<Role> roles;
 
     @Override

@@ -1,16 +1,16 @@
 server:
     port: 8080
 
-#jakarta:
-#  persistence:
-#    jdbc:
-#      url: jdbc:postgresql://localhost:15432/shopme
-
 spring:
   application:
-    name: admin
+    name: survey
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://host.docker.internal:7080/realms/master
   datasource:
-    url: jdbc:postgresql://localhost:15432/postgres
+    url: jdbc:postgresql://host.docker.internal:15432/postgres
     username: username
     password: password
   jpa:

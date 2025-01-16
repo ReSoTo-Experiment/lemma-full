@@ -1,7 +1,7 @@
 package edu.resoto.saz.Survey.managers;
 
 import edu.resoto.saz.Survey.domain.Tenant.Survey;
-import edu.resoto.saz.Survey.domain.Tenant.gen.SurveyRepositoryGen;
+import edu.resoto.saz.Survey.domain.Tenant.SurveyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,14 +12,47 @@ import org.springframework.stereotype.Service;
 @Service
 public class SurveyManager {
 
-    private final SurveyRepositoryGen surveyRepo;
+    private final SurveyRepository surveyRepo;
 
     @Autowired
-    public SurveyManager(SurveyRepositoryGen surveyRepo){
+    public SurveyManager(SurveyRepository surveyRepo){
         this.surveyRepo = surveyRepo;
     }
 
     public Survey getSurvey(String guid){
+
         return surveyRepo.findByGuid(guid);
+    }
+
+    /**
+     * Createa and save a new survey
+     * @param survey
+     * @return
+     */
+    public boolean saveSurvey(Survey survey){
+        if (!checkSurveySanity(survey)){
+            throw new IllegalArgumentException("Survey is not valid");
+        }
+
+        surveyRepo.save(survey);
+        return true;
+    }
+
+    /**
+     * If a survey exists with the guid, then delete it.
+     * @param guid
+     * @return
+     */
+    public boolean deleteSurvey(String guid){
+        Survey survey = surveyRepo.findByGuid(guid);
+        if (survey == null){
+            throw new IllegalArgumentException("Survey not found");
+        }
+        surveyRepo.delete(survey);
+        return true;
+    }
+
+    public boolean checkSurveySanity(Survey survey){
+        return survey != null && survey.getGuid() != null && survey.getSurveyModel() != null;
     }
 }
