@@ -3,12 +3,19 @@ package edu.resoto.saz.Admin.domain.Tenant;
 import edu.resoto.saz.Admin.domain.Authentication.Person;
 import edu.resoto.saz.Admin.domain.Tenant.Organization;
 import edu.resoto.saz.Admin.domain.Tenant.gen.UnitGen;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+
 import java.util.List;
 
 public class Unit implements UnitGen {
 
     public Unit() {
     }
+
+    @Id
+    @GeneratedValue
+    private long id;
 
     private String guid;
 

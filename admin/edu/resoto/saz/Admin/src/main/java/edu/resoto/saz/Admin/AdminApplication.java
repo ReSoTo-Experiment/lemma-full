@@ -1,16 +1,16 @@
-package edu.resoto.saz.researcher;
+package edu.resoto.saz.Admin;
 
 import de.fhdo.lemma.msa.services.LemmaMicroservice;
 import de.fhdo.lemma.msa.services.LemmaMicroserviceType;
-import edu.resoto.saz.researcher.gen.ResearcherGen;
+import edu.resoto.saz.Admin.gen.AdminGen;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @LemmaMicroservice(type = LemmaMicroserviceType.FUNCTIONAL)
-@SpringBootApplication(scanBasePackages = "edu.resoto.saz.researcher")
-public class Researcher implements ResearcherGen {
+@SpringBootApplication(scanBasePackages = "edu.resoto.saz.Admin")
+public class AdminApplication implements AdminGen {
 
     public static void main(String[] args) {
-        SpringApplication.run(Researcher.class, args);
+        SpringApplication.run(AdminApplication.class, args);
     }
 }

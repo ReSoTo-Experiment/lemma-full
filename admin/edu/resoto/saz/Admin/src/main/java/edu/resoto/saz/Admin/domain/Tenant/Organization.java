@@ -2,12 +2,19 @@ package edu.resoto.saz.Admin.domain.Tenant;
 
 import edu.resoto.saz.Admin.domain.Tenant.Unit;
 import edu.resoto.saz.Admin.domain.Tenant.gen.OrganizationGen;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+
 import java.util.List;
 
 public class Organization implements OrganizationGen {
 
     public Organization() {
     }
+
+    @Id
+    @GeneratedValue
+    private long id;
 
     private String guid;
 

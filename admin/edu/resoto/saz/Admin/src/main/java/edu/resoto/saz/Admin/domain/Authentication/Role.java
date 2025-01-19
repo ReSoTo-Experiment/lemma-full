@@ -2,13 +2,21 @@ package edu.resoto.saz.Admin.domain.Authentication;
 
 import edu.resoto.saz.Admin.domain.Authentication.Person;
 import edu.resoto.saz.Admin.domain.Authentication.gen.RoleGen;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+
 import java.util.List;
 
+@Entity
 public class Role implements RoleGen {
 
     public Role() {
     }
 
+    @Id
+    @GeneratedValue
+    private long id;
     private String name;
 
     @Override
